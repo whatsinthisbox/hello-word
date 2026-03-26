@@ -1,0 +1,19 @@
+name: WSL Hello World
+
+on:
+  push:
+    branches: [ "main" ] # Uruchamia się przy pushu do gałęzi main
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest # Uruchamia się na wirtualnej maszynie z Ubuntu
+
+    steps:
+      - uses: actions/checkout@v4 # Pobiera kod z repozytorium
+
+      - name: Run Bash script
+        run: |
+          chmod +x hello.sh
+          ./hello.sh
+        # Jeśli używasz Pythona, zamień powyższe na:
+        # run: python3 hello.py
